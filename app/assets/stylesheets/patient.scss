@@ -1,0 +1,141 @@
+/* ---------------- PATIENT SEARCH PAGE ---------------- */
+
+.results {
+  border-bottom: 1px solid #787878;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.results_emergency {
+  border-bottom: 1px solid #f8991d;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.resultsimg {
+  width:100%;
+}
+
+.resultstext {
+  font-size: 10px;
+}
+
+.contacts {
+  line-height:2;
+}
+
+.sm_text {
+  font-size: 9px;
+}
+
+/*Appointment Popup*/
+
+.subheader {
+  font-family: 'Museo700', Fallback, sans-serif;
+  color: gray;
+}
+
+.fieldrow {
+  margin-bottom:10px;
+}
+
+/* ---------------- END PATIENT SEARCH PAGE ---------------- */
+/* ---------------- PATIENT PROFILE PAGE ---------------- */
+
+.schedule {
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-left:15px;
+  padding: 20px;
+}
+
+.sched_appts {
+  font-size: 12px;
+}
+
+
+.labels {
+  margin-bottom:28px;
+}
+
+
+.cardimg {
+  margin-bottom:8px;
+  border-radius: 5px;
+  height: 180px;
+}
+
+.patientimg {
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.patientinfo {
+  line-height: 2;
+}
+
+/* ---------------- END PATIENT PROFILE PAGE ---------------- */
+/* ---------------- PATIENT APPOINTMENTS PAGE ---------------- */
+
+
+.card {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding:10px;
+}
+
+.cardimg {
+  margin-bottom:8px;
+  border-radius: 5px;
+  height: 120px;
+}
+
+/* ---------------- END PATIENT APPOINTMENTS PAGE ---------------- */
+/* ---------------- PATIENT DENTISTRY VIEW PAGE ---------------- */
+
+.covercontainer {
+  height:250px;
+  position:relative;
+  overflow: hidden;
+}
+
+.cover {
+  position:absolute;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+
+.drname {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.drtitle {
+  font-size: 12px;
+}
+
+.verified {
+  margin-left: 15px;
+}
+
+.info {
+  line-height: 1.5;
+  img {
+    width: 100%;
+  }
+}
+
+.maptitle {
+  background-color: #64c3a6;
+  color: #ffffff;
+  text-align: center;
+  padding: 5px;
+}
+
+.specialist {
+  font-size: 10px;
+}
+
+/* ---------------- END DENTISTRY VIEW PAGE ---------------- */

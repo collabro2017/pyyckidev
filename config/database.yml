@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  database: pycky_development
+  host: localhost
+test:
+  adapter: postgresql
+  database: pycky_test
+  host: localhost

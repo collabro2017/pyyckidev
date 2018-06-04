@@ -1,0 +1,77 @@
+<!-- Search Bar -->
+<div class="row">
+	<div class="col-xs-10 col-xs-offset-1 navbtnmenu">
+		<%= form_tag doctors_path, method: :get do %>
+		  <div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+		    <span class="glyphicon glyphicon-map-marker pull-left large_icon" style="margin:4px 4px 0 -15px" aria-hidden="true"></span>
+		    <span class="col-xs-11">
+		    	<%= text_field_tag :location, params[:location], class: 'form-control', placeholder: 'San Mateo, California|' %>
+		    </span>
+		  </div>
+		  <div class="col-xs-12 col-sm-6" style="margin-bottom:10px;">
+		    <span class="col-xs-6">
+		    	<%= select_tag :by_plan, options_from_collection_for_select(InsurancePlan.all, :id, :full_name), selected: params[:insurance_plan], class: "form-control btn-success btn-success_off insurance-plan__dropdown", prompt: "Insurance" %>
+			  </span>
+			  <%= button_tag type: 'submit', class: "btn btn-default btn-success" do %>
+			  	<span class="glyphicon glyphicon-search pull-left large_icon" style="color:white;" aria-hidden="true">
+			  	</span>
+			  <% end %>
+		  </div>
+		<% end %>
+		<div class='col-xs-12 text-center'>
+      <%= render 'shared/dynamic_map', addresses: @doctors.map(&:primary_address).compact %>
+    </div>
+	</div>
+</div>
+
+<div class="container-fluid">
+  <% @doctors.each do |doctor| %>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 results">
+        <h3>
+          <%= doctor.name %> 
+          <br/>
+        </h3>
+        <h4>
+          <%= link_to doctor.primary_office.try(:name), office_path(doctor.primary_office) if doctor.primary_office %>    
+        </h4>
+        <span class="col-xs-2">
+          <%= image_tag "dentistryicon.jpg", class: "resultsimg" %>
+        </span>
+        <span class="col-xs-3">
+          <span class="glyphicon glyphicon-user pull-left" aria-hidden="true"></span>&nbsp; <span class="museo700">About Us</span><br/>
+          <p class="resultstext">
+            <%= doctor.awards_description %>
+          </p>
+        </span>
+        <span class="col-xs-3">
+          <span class="glyphicon glyphicon-comment pull-left" aria-hidden="true">
+          </span>&nbsp; 
+          <span class="museo700">
+            Contact Us
+          </span>
+          <br/>
+          <p class="resultstext">
+            <span class="contacts"><span class="glyphicon glyphicon-phone pull-left" aria-hidden="true"></span>&nbsp; <%= doctor.primary_office.try(:phone) %>
+            <br/><span class="glyphicon glyphicon-envelope pull-left" aria-hidden="true"></span>&nbsp; <a><%= doctor.primary_office.try(:email) %></a></span>
+          </p>
+        </span>
+        <span class="col-xs-4">
+          <span class="glyphicon glyphicon-map-marker pull-left" aria-hidden="true">
+          </span>&nbsp; 
+          <span class="museo700">Find Us</span>
+          <%= link_to 'Book Appointment', office_path(doctor.primary_office), class: "pull-right btn btn-default btn-success", style: 'padding:6px' if doctor.primary_office.try(:claimed?) %>
+          <br/>
+          <% if doctor.primary_address.present? %>
+            <p class="resultstext">
+              <%= doctor.primary_address.full_street %><br/><%= doctor.primary_address.city %>, <%= doctor.primary_address.state %>
+            </p><br/>
+          <% end %>
+        </span>
+      </div>
+    </div>
+	<% end %>
+  <div class='row pagination__container text-center'> 
+    <%= paginate @doctors %>
+  </div>
+ </div>

@@ -1,0 +1,41 @@
+<div class="container-fluid mint">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1" style="margin-bottom:50px;margin-top:50px;">
+      <div class="col-lg-2 col-sm-4 col-xs-6 col-xs-offset-3 col-sm-offset-4 col-lg-offset-5">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo_white.svg' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-2 signup_container">
+      <span class="form_header">Pycky Login</span>
+      <br/>
+      <span class="form_sub">Not yet a member? <%= link_to 'Sign-up Here', new_doctor_registration_path %></span>
+      <br/><br/>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="col-xs-3" style="text-align:right;">
+          <label class="labels" style="margin-top:7px;">Email:</label><br/>
+          <label class="labels">Password:</label><br/>
+        </div>
+
+        <div class="col-xs-9" style="margin-bottom:20px;">
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, class: "form-control", id: "email", placeholder: "Email Address" %>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", id: "password", placeholder: "Enter your Password" %>
+          <!--  <small>Error messages go here</small>-->
+          </div>
+        </div>
+
+        <div class="modal-footer" style="clear:both;">
+          <br/>
+          <%= link_to "Cancel", root_path, class: "btn-lg btn", type: 'button' %>
+          <%= f.submit "Login", class: "btn-lg btn-success" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

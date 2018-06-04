@@ -1,0 +1,16 @@
+<div style="margin-top:30px;">
+  <h4>
+    <span class="glyphicon glyphicon-comment greenicon" aria-hidden="true"></span> &nbsp;Contact
+    <%= link_to 'Edit', edit_office_path(office), class: "btn btn-primary editbtn" if office.claimed? && office.has_user?(current_user) %>
+  </h4>
+  <% if office.phone.present? %>
+    <span class="glyphicon glyphicon-earphone" aria-hidden="true" style="margin:10px 0 15px 10px"></span> &nbsp;<%= office.pretty_phone %>
+  <% end %>
+  <% if office.email.present? %>
+    <span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin:10px 0 15px 40px"></span> &nbsp;<%= office.email %>
+  <% end %>
+  <br />
+  <% if office.primary_address %>
+    <span class="glyphicon glyphicon-home" aria-hidden="true" style="margin:0 0 0 10px;"></span> &nbsp;<%= office.primary_address.full_address %>
+  <% end %>
+</div>

@@ -1,0 +1,99 @@
+<div class="container-fluid jumbo">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1" style="margin-top:20px;">
+      <%= render 'layouts/nav_dropdown' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 hello_box">
+      <div class="row">
+        <%= image_tag 'logo.svg', class: 'col-xs-6 col-xs-offset-3', style: "margin-bottom:20px;" %>
+      </div>
+      <div class="row">
+        <p class="col-xs-12 lead" >
+          Choose a dentist and make an appointment.<br/>
+          Prioritize your preferences for the best match.
+        </p>
+      </div>
+      <div class="row">
+        <% if current_user %>
+          <p class="col-xs-12 col-lg-3 h4 museo500">
+            Get started...
+          </p>
+        <% else %>
+          <p class="col-xs-12 col-lg-3 h4 museo500">
+            I am a...
+          </p>
+        <% end %>
+        <div class="col-xs-12 col-lg-9">
+          <% if current_user %>
+            <%= link_to user_path(current_user), class: "btn btn-default col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 col-lg-5 col-lg-offset-0 btn-success", role: 'button', style: "margin-top:5px;"  do %>
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp;My Page
+            <% end %>
+            <%= link_to doctors_path, class: "btn btn-default col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 col-lg-5 col-lg-offset-0 btn-success", role: 'button', style: "margin-top:5px;"  do %>
+              <span class="glyphicon glyphicon-apple" aria-hidden="true"></span> &nbsp;Find Dentists
+            <% end %>
+          <% else %>
+            <%= link_to doctors_path, class: "btn btn-default col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 col-lg-5 col-lg-offset-0 btn-success", role: 'button', style: "margin-top:5px;"  do %>
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp;Patient
+            <% end %>
+            <%= link_to new_doctor_registration_path, class: "btn btn-default col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 col-lg-5 col-lg-offset-1 btn-success", role: 'button', style: "margin-top:5px;"  do %>
+              <span class="glyphicon glyphicon-apple" aria-hidden="true"></span> &nbsp;Doctor
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <a class="btn btn-default col-sm-2 col-sm-offset-9 col-xs-4 col-xs-offset-7 btn-warning emergency" href="patient/patient_search_emergency.html" role="button">
+      <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> &nbsp;Emergency
+    </a>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h3 style="padding-left:15px;">Finding a dentist on your terms:</h3>
+      <p style="padding-left:15px;">Sift through the non-verified dentists in San Francisco and find a top quality practitioner who is the right fit for your needs and book your appointment.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div style="margin-top:15px;" class="col-sm-4 col-xs-12">
+        <%= image_tag 'target.jpg', class: 'col-xs-12' %>
+        <p class="col-xs-12"><br />You can search based on location, insurance, or specialty and book an appointment to be seen immediately or in advance.</p>
+      </div>
+      <div style="margin-top:15px;" class="col-sm-4 col-xs-12">
+        <%= image_tag 'doctor.jpg', class: 'col-xs-12' %>
+        <p class="col-xs-12"><br />If you have more time to browse, you can find a dentist based on any pycky requirement that is important to you including gender or educational backround.</p>
+      </div>
+      <div style="margin-top:15px;" class="col-sm-4 col-xs-12">
+        <%= image_tag 'map.jpg', class: 'col-xs-12' %>
+        <p class="col-xs-12">
+          <br />
+          <a style="border-radius:5px;" class="btn btn-default col-xs-8 col-xs-offset-2 btn-warning emergency" href="patient/patient_search_emergency.html" role="button">
+            <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> &nbsp;Emergency
+          </a>
+          <br /><br />
+          Our emergency feature will tell you the dentist that is closest to you in proximity and available to see you, right away.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br /><br />
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-1 col-lg-6">
+      <h3 style="padding-left:15px;">Hey DDS, we know you want to join our network!</h3>
+    </div>
+    <a style="margin-top:15px;" class="btn btn-default col-xs-2 btn-success" href="#" role="button">
+      Click! &nbsp;<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    </a>
+  </div>
+</div>
+
+<%= render 'layouts/twitter_container' %>

@@ -1,0 +1,95 @@
+<% address = office.addresses.any? ? office.addresses.first : office.addresses.new %>
+
+<%= form_for office, class: 'form-horizontal' do |f| %>
+  <div class='form-group'>
+    <%= f.label :name, class: "col-sm-3 control-label text-right" %>
+    <div class='col-sm-9'>
+      <%= f.text_field :name, placeholder: 'Smile Dentists SF...', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :phone, class: "col-sm-3 control-label text-right" %>
+    <div class='col-sm-9'>
+      <%= f.text_field :phone, placeholder: 'Office Phone...', class: 'form-control' %>
+    </div>
+  </div>>
+
+  <div class='form-group'>
+    <%= f.label :email, class: "col-sm-3 control-label text-right" %>
+    <div class='col-sm-9'>
+      <%= f.text_field :email, placeholder: 'office@email.com...', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :yelp_url, class: "col-sm-3 control-label text-right" %>
+    <div class='col-sm-9'>
+      <%= f.text_field :yelp_url, value: (f.object.yelp_account.url if f.object.yelp_account),placeholder: 'https://www.yelp.com/biz/your-dentist-office-here', class: 'form-control' %>
+    </div>
+  </div>
+
+
+  <%= f.fields_for address do |t| %>
+    <%= t.hidden_field :addressable_type, value: office.class.name %>
+    <%= t.hidden_field :id, value: address.try(:id) %>
+
+    <div class='form-group'>
+      <%= t.label :street1, class: "col-sm-3 control-label text-right" %>
+      <div class='col-sm-9'>
+        <%= t.text_field :street1, placeholder: 'Street address...', class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <%= t.label :street2, class: "col-sm-3 control-label text-right" %>
+      <div class='col-sm-9'>
+        <%= t.text_field :street2, placeholder: 'Suite or apt #...', class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <%= t.label :city, class: "col-sm-3 control-label text-right" %>
+      <div class='col-sm-9'>
+        <%= t.text_field :city, placeholder: 'Office city...', class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <%= t.label :state, class: "col-sm-3 control-label text-right" %>
+      <div class='col-sm-9'>
+        <%= t.text_field :state, placeholder: 'Office state...', class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <%= t.label :zip_code, class: "col-sm-3 control-label text-right" %>
+      <div class='col-sm-9'>
+        <%= t.text_field :zip_code, placeholder: 'Office zip...', class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class='form-group'>
+    <%= f.label :services_description, class: "col-sm-3 control-label text-right" %>
+    <div class='col-sm-9'>
+      <%= f.text_area :services_description, placeholder: 'This is the area of focus for the office...', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :awards_description, class: "col-sm-3 control-label text-right" %>
+    <div class='col-sm-9'>
+      <%= f.text_area :awards_description, placeholder: 'Any awards to add... ', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='col-sm-3'>
+    </div>
+    <div class='col-sm-9 text-right'>
+      <%= link_to 'Cancel', '#', class: 'btn-lg btn' %>
+      <%= f.submit 'Save', class: 'btn-lg btn-success' %>
+    </div>
+  </div>
+<% end %>

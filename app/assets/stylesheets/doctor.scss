@@ -1,0 +1,147 @@
+/* ---------------- DOCTOR SIGN UP ---------------- */
+
+.mint {
+  background-color: #64c3a6;
+}
+
+.signup_container {
+  background-color: #F0F0F0;
+  padding: 30px;
+}
+
+.form_header {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form_sub {
+  font-size: 10px;
+  color: #A9A9A9;
+}
+
+
+/* ---------------- CALENDAR PAGE ---------------- */
+
+/* Calendar */
+.calendar {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding-top:10px;
+  padding-bottom:20px;
+}
+
+.cal_time {
+  font-size: 9px;
+  padding-top: 27px;
+}
+
+.cal_table {
+  font-size:10px;
+  padding:12px;
+  border-top: solid 1px #C0C0C0;
+  color: #ffffff;
+}
+
+.cal_new {
+  background-color: #e57473;
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.cal_appt {
+  background-color: #64c3a6;
+  cursor: pointer;
+}
+
+.cal_cancel {
+  background-color: #232940;
+}
+
+.cal_avail {
+  background-color:#c0c0c0;
+  cursor: pointer;
+}
+
+.cal_unavail {
+  background-color:#787878;
+  cursor: pointer;
+}
+
+.cal_link {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.cal_link:hover {
+  color: #ffffff;
+}
+
+/* Schedule */
+
+.schedule {
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-left:15px;
+  padding: 20px;
+}
+
+.sched_appts {
+  font-size: 12px;
+}
+
+
+.labels {
+  margin-bottom:28px;
+}
+
+/* ---------------- END CALENDAR PAGE ---------------- */
+/* ---------------- RECORDS PAGE ---------------- */
+
+.card {
+  background-color: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.cardimg {
+  margin-bottom:8px;
+  border-radius: 5px;
+  height: 180px;
+}
+
+.doctorimg {
+  border-radius: 5px;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.patientinfo {
+  line-height: 2;
+}
+
+.forms {
+  margin-left:20px;
+}
+.nothingattached {
+  color: #c0c0c0;
+}
+
+.checkbox_tooth {
+  width:45px;
+}
+
+/*Checkbox Override*/
+
+.checkbox-inline, .radio-inline {
+  padding-left:0px;
+}
+
+/* ---------------- END RECORDS PAGE ---------------- */
+/* ---------------- DOCTOR SEARCh ---------------- */
+.pagination__container {
+  font-size: 18px;
+  padding: 100px;
+}
+
+
+/* ---------------- END DOCTOR SEARCH ---------------- */

@@ -1,0 +1,12 @@
+<% if current_user && current_user.claims.where(office_id: office.id).any? %>
+  <% claim = current_user.claims.where(office_id: office.id).first %>
+  <%= link_to office_claim_path(office_id: office.id, id: claim.id), class: 'btn btn-default btn-success btn-xs' do %>
+    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+    &nbsp;Finish Your Claim
+  <% end %>
+<% elsif !office.claimed? %>
+  <%= link_to office_claims_path(office_id: office.id, user_id: current_user.try(:id)), class: 'btn btn-default btn-success btn-xs', method: :post do %>
+    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+    &nbsp;Claim This Office
+  <% end %>
+<% end %>

@@ -1,0 +1,12 @@
+== Getting Started
+
+* Clone the project
+* Go to https://www.yelp.com/developers and set up an app for your Yelp account to get api keys for Yelp integration
+* Go to https://cloud.google.com/maps-platform/ and get Google Maps api credentials for 
+* Get all other api keys from previous engineer
+* Copy .sample.env to .env and update the `TESTING_EMAIL` and the api keys that're tied to your account
+* `bundle install` + `rails s` and you should be good-to-go
+
+== Deploying to Production
+* Codeship is set up on the project to handle deploys anytime you merge to master. This includes database migrations. Simply merge your code to production and the app will deploy.
+* If you have additional rake tasks to run with a deploy, you'll need to run them manually after codeship deploys

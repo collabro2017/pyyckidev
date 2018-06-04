@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class='row'>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h2><%= @office.name %></h2>
+      <%= render 'offices/contact_info', office: @office %>
+      <div style="margin-top:30px;">
+        <h4><span class="glyphicon glyphicon-user greenicon" aria-hidden="true"></span>
+         &nbsp;Claim Process</h4>
+
+        <p>
+          An automated email has been sent to this clinics listed contact email. To verify ownership of this clinic, please input the confirmation code from that email. If you are unable to access this email address, please
+          <a href="mailto:antigone@pycky.com?subject=Clinic%20Claim%20Verification%20#{<%= @office.name %>&body=This%20is%20in%20reference%20to%20claiming%20the%20clinic,%20(<%= @office.name %>).%0DMy%20Pycky%20doctor%20account%20profile%20is:%20(<%= current_user.name %>).">
+            Contact us
+          </a>
+        </p>
+        <br/><br/>
+        <%= form_for [@office, @claim], class: 'form-horizontal' do |f| %>
+          <div class='form-group'>
+            <%= f.label :code_confirm, class: "control-label" %>
+            <div class='col-sm-6'>
+              <%= f.text_field :code_confirm, placeholder: 'Your confirmation code here...', class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class='form-group'>
+            <%= link_to 'Cancel', office_path(@office), class: "btn-lg btn" %>
+            <a href="mailto:antigone@pycky.com?subject=Clinic%20Claim%20Verification%20<%= @office.name %>&body=This%20is%20in%20reference%20to%20claiming%20the%20clinic,%20(<%= @office.name %>).%0DMy%20Pycky%20doctor%20account%20profile%20is:%20(#{current_user.name}).">
+              <button type="button" class="btn-lg btn">Unable to Verify</button>
+            </a>
+            <%= f.submit 'Submit', class: "btn-lg btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>

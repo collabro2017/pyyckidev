@@ -1,0 +1,28 @@
+<div class="pull-right" style="margin-top:20px;">
+  <div class="dropdown">
+    <% if current_user %>
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownNav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <!--         
+        <div class="pull-left notification" style="margin:-2px 5px 0 0">2</div>
+        -->        
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        <%= current_user.name %>
+        <div class="pull-right downarrow" style="margin:2px 0 0 5px"><div class="downarrow-mask"></div></div>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownNav">
+        <li><%= link_to 'My profile', user_path(current_user) %></a></li>
+        <li><a href="#">Notifications</a></li>
+        <% if current_user.try(:admin?) %>
+          <li><%= link_to 'Manage Site', admin_root_path %></li>
+        <% end %>
+        <li role="separator" class="divider"></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% else %>
+      <button class="btn btn-default" type="button">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        <%= link_to 'Have an account? Sign In', new_user_session_path %>
+      </button>
+    <% end %>
+  </div>
+</div>

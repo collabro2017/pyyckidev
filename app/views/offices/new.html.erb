@@ -1,0 +1,13 @@
+<div class='row'>
+  <div class="col-xs-8 col-xs-offset-2 signup_container">
+    <span class="form_header">Add New Clinic</span>
+    <br/>
+    <span class="form_sub">
+      This form is for creating a new office in the Pycky database. For claiming an existing clinic, please search and visit the clinics home page and select the claims button. Visit the search form here: <%= link_to 'Search Offices', offices_path %>.
+    </span>
+    <br/><br/>
+    <div class="col-xs-12" style="margin-bottom:20px;">
+      <%= render 'offices/form', office: @office %>
+    </div>
+  </div>
+</div>

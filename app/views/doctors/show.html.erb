@@ -1,0 +1,138 @@
+<div class="container-fluid">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="row">
+      <br/>
+
+      <div class="col-xs-8">
+        <h2>
+          <%= @doctor.name %>
+          <% if @doctor.verified? %>
+            <span class="drtitle">
+              <span class="verified glyphicon glyphicon-check greenicon" aria-hidden="true"></span> &nbsp;Verified
+            </span>
+          <% end %>
+        </h2>
+        <div style="margin-top:30px;">
+          <div class="col-xs-3">
+            <%= cl_image_tag @doctor.avatar.square.url, class: "doctorimg" %>
+          </div>
+          <h4 class="col-xs-9"><span class="glyphicon glyphicon-comment greenicon" aria-hidden="true"></span> &nbsp;Contact</h4>
+          <% if @doctor.phone.present? %>
+            <span class="glyphicon glyphicon-earphone" aria-hidden="true" style="margin:10px 0 15px 10px"></span> &nbsp;<%= @doctor.pretty_phone %>
+          <% end %>
+          <% if @doctor.email.present? %>
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin:10px 0 15px 40px"></span> &nbsp;<%= @doctor.email %>
+          <% end %>
+          <br />
+          <% if @doctor.primary_address %>
+            <span class="glyphicon glyphicon-home" aria-hidden="true" style="margin:0 0 0 10px;"></span> &nbsp;<%= @doctor.primary_address.full_address %>
+          <% end %>
+        </div>
+        <div style="margin-top:30px; clear: both;">
+          <h4><span class="glyphicon glyphicon-user greenicon" aria-hidden="true"></span> &nbsp;Clinics</h4>
+          <% if @doctor.offices.any? %>
+            <% @doctor.offices.limit(10).each do |office| %>
+              <span class="drname col-xs-12">
+                <%= link_to office.name, office_path(office) %>
+                <a class="verified btn btn-default btn-success btn-xs" href="doctor_cal.html" role="button" data-toggle="modal" data-target="#bookappt">Book Appointment</a>
+              </span>
+              <span class="drtitle col-xs-12">M W Th</span><br/><br/>
+            <% end %>
+            <% if @doctor.offices.count > 10 %>
+              <a href="#">+ See All</a>
+            <% end %>
+          <% else %>
+            <%= link_to new_office_path, class: 'btn btn-default btn btn-xs' do %>
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              &nbsp;Add my Office
+            <% end %>
+            <%= link_to offices_path, class: 'btn btn-default btn-success btn-xs' do %>
+              <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+              &nbsp;Search for my Office
+            <% end %>
+          <% end %>
+        </div>
+        <div style="margin-top:30px;">
+          <h4><span class="glyphicon glyphicon-list-alt greenicon" aria-hidden="true"></span> &nbsp;Services</h4>
+          <p class="info col-xs-12">
+            <%= @doctor.services_description %>
+          </p>
+        </div>&nbsp;
+        <div>
+          <h4><span class="glyphicon glyphicon-apple greenicon" aria-hidden="true"></span> &nbsp;Awards</h4>
+          <p class="info col-xs-12">
+            <%= @doctor.awards_description %>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+        <div class="covercontainer">
+          <%= render 'shared/map', address: @doctor.primary_address %>
+        </div>
+        <div class="maptitle">Lorem Ipsum</div>
+        <div>
+          <h4><span class="glyphicon glyphicon-map-marker greenicon" aria-hidden="true"></span> &nbsp;Location</h4>
+          <p class="info col-xs-12">
+            <% if @doctor.primary_address %>
+              <%= @doctor.primary_address.full_street %><br/>
+              <%= @doctor.primary_address.city_state_zip %>
+            <% end %>
+          </p>
+        </div>
+        &nbsp;
+        <div>
+          <h4><span class="glyphicon glyphicon-map-marker greenicon" aria-hidden="true"></span> &nbsp;Reviews</h4>
+          <p class=" col-xs-12"><b>Reviewer Name</b><br/>Lorem ipsum dolor sit amet, scing elit. Aliquam consequat.</p>
+          <p class=" col-xs-12"><b>Reviewer Name</b><br/>Lorem ipsum dolor sit amet, scing elit. Aliquam consequat.</p>
+          <p class=" col-xs-12"><b>Reviewer Name</b><br/>Lorem ipsum dolor sit amet, scing elit. Aliquam consequat.</p>
+        </div>
+        <a href="#">+ See All</a>
+      </div>
+
+    </div>
+    <br/>
+    <hr>
+    <br/>
+
+    <div class="">
+      <h4><span class="glyphicon glyphicon-comment greenicon" aria-hidden="true"></span> &nbsp;Specialists Network</h4>
+      <div class="col-xs-4">
+        <div class="col-xs-6">
+          <%= image_tag 'patient6.jpg', class: 'patientimg' %>
+        </div>
+        <div class="col-xs-6 specialist">
+          <br/>
+          SF Friendly Dentist<br/>
+          Dr. Tracy Meghen<br/><br/>
+          <a class="btn btn-default btn-success btn-xs" href="doctor_cal.html" role="button" data-toggle="modal" data-target="#bookappt">Book Appointment</a>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="col-xs-6">
+          <%= image_tag 'patient6.jpg', class: 'patientimg' %>
+        </div>
+        <div class="col-xs-6 specialist">
+          <br/>
+          SF Friendly Dentist<br/>
+          Dr. Tracy Meghen<br/><br/>
+          <a class="btn btn-default btn-success btn-xs" href="doctor_cal.html" role="button" data-toggle="modal" data-target="#bookappt">Book Appointment</a>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="col-xs-6">
+          <%= image_tag 'patient6.jpg', class: 'patientimg' %>
+        </div>
+        <div class="col-xs-6 specialist">
+          <br/>
+          SF Friendly Dentist<br/>
+          Dr. Tracy Meghen<br/><br/>
+          <a class="btn btn-default btn-success btn-xs" href="doctor_cal.html" role="button" data-toggle="modal" data-target="#bookappt">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<br/><br/><br/><br/>

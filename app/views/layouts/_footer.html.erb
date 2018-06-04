@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 footer">
+      <%= image_tag 'logo_white.svg', class: "col-lg-2 col-md-3 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3", style: "margin-bottom:20px;margin-top:20px;" %>
+      <span class="col-md-2 col-sm-2 col-xs-5 col-xs-offset-1" style="padding:20px;">
+        <ul class="list-unstyled">
+          <li><%= link_to 'About Us', about_path, class: 'footer-link' %></li>
+          <li><%= link_to 'Privacy', privacy_path, class: 'footer-link' %></li>
+          <li><%= link_to 'Contact Us', contact_path, class: 'footer-link' %></li>
+          <li><%= link_to 'Terms of Use', terms_path, class: 'footer-link' %></li>
+          <li><%= link_to 'FAQ', faq_path, class: 'footer-link' %></li>
+        </ul>
+      </span>
+      <span class="col-sm-2 col-xs-5" style="padding:20px;">
+        <ul class="list-unstyled">
+          <li class="museo700"><%= link_to 'Search For Doctors', doctors_path, class: 'footer-link' %></li>
+        </ul>
+      </span>
+      <%= image_tag 'social_icons.png', class: "col-lg-2 col-lg-offset-3 col-md-2 col-sm-2 col-sm-offset-0 col-xs-6 col-xs-offset-3", style: "margin-bottom:20px;margin-top:20px;" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<!-- Navigation Bar -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 navbtnmenu">
+      <!-- <a class="btn btn-default btn-success btn-success_off" href="#" role="button">
+        <span class="glyphicon glyphicon-th" aria-hidden="true"></span> &nbsp;Dashboard
+      </a> -->
+      <a class="btn btn-default btn-success" href="#" role="button">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp;Profile
+      </a>
+      <a class="btn btn-default btn-success btn-success_off" href="patient_history.html" role="button">
+        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> &nbsp;History
+      </a>
+      <a class="btn btn-default btn-success btn-success_off" href="patient_appointments.html" role="button">
+        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> &nbsp;Appointments
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="row">
+      <br/>
+
+<!-- appointments -->
+      <div class="pull-right">
+        <div class="schedule">
+          <span class="museo700">Next Appointments</span><br/>
+          <span class="sched_appts">
+            Date: October 17, 2017<br/>
+            Time: 8:00 am<br/>
+            Procedure: Root Canal<br/>
+            <a class="link pull-right" style="margin:10px 0 0 0">View</a><br/>
+
+            <hr>
+
+            <span class="museo700">Previous Appointments</span><br/>
+            <a class="link">Date: May 1, 2017</a><br/>
+            <a class="link">Date: February 25, 2017</a><br/>
+            <a class="link">Date: October 2, 2016</a><br/>
+            <a class="link pull-right" style="margin:10px 0 0 0">+ Load All</a><br/>
+          </span>
+        </div>
+      </div>
+
+      <!-- Patient info -->
+      <div class="col-xs-3">
+        <%= cl_image_tag @patient.avatar.square.url, class: "patientimg" %>
+        <a class="btn btn-primary editbtn" href="#" role="button" style="top:10px;left:25px;">EDIT</a>
+      </div>
+      <div class="col-xs-2 patientinfo">
+        Patient Name:<br/>
+        Patient ID:<br/>
+        Gender:<br/>
+        Age:<br/>
+        Total Visits:
+      </div>
+      <div class="col-xs-2 patientinfo">
+        <a class="btn btn-primary editbtn" href="#" role="button" style="top:-20px;">EDIT</a>
+        <%= @patient.name %><br/>
+        123456<br/>
+        Female<br/>
+        35 years<br/>
+        4 Visits
+      </div>
+      <br/>
+      <div class="col-xs-7" style="margin-top:30px;">
+        <h4><span class="glyphicon glyphicon-comment greenicon" aria-hidden="true"></span> &nbsp;Contact</h4>
+        <a class="btn btn-primary editbtn" href="#" role="button" style="top:10px;left:120px;">EDIT</a>
+        <span class="glyphicon glyphicon-earphone" aria-hidden="true" style="margin:10px 0 15px 10px"></span> &nbsp;<%= @patient.phone %>
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin:10px 0 15px 40px"></span> &nbsp;<%= @patient.email %>
+        <br />
+        <span class="glyphicon glyphicon-home" aria-hidden="true" style="margin:0 0 0 10px;"></span> &nbsp;1122 Calais Drive, San Francisco, CA 94403
+      </div>
+      <div class="col-xs-7" style="margin-top:30px;">
+        <h4><span class="glyphicon glyphicon-th-list greenicon" aria-hidden="true"></span> &nbsp;View Forms</h4>
+        <a class="btn btn-primary editbtn" href="#" role="button" style="top:10px;left:150px;">EDIT</a>
+        <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="margin:10px 0 15px 10px"></span> &nbsp;
+        <a class="link">MedicalHistory.pdf</a>
+        <br/>
+        <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="margin:0 0 0 10px;"></span> &nbsp;
+        <a class="link">Consultation.pdf</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
